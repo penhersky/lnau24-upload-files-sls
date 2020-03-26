@@ -4,7 +4,8 @@
   "description": "",
   "main": "handler.ts",
   "scripts": {
-    "dev": "ts-node src/dev.ts",
+    "dev": "nodemon src/dev.ts",
+    "start": "ts-node src/dev.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
