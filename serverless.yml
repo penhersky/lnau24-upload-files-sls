@@ -16,7 +16,22 @@ provider:
   region: eu-central-1
 
 functions:
-  lnau:
-    handler: handler.lambda
+  lambda:
+    handler: handler.handler
     events:
-      - http: ANY {proxy+}
+      - http:
+          path: graphql
+          method: post
+          cors:
+            headers:
+              - Content-Type
+              - auth-token
+              - access-key
+      - http:
+          path: graphql
+          method: get
+          cors:
+            headers:
+              - Content-Type
+              - auth-token
+              - access-key
