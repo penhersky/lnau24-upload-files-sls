@@ -7,3 +7,5 @@ export const AWS_ACCESS_KEY: string = env.ACCESS_KEY;
 export const AWS_SECRET_ACCESS_KEY: string = env.SECRET_ACCESS_KEY;
 export const AWS_REGION: string = env.REGION;
 export const AWS_BUCKET_NAME: string = env.BUCKET_NAME;
+
+export const LOG_GROUP_NAME: string = env.LOG_GROUP_NAME;
