@@ -28,11 +28,13 @@ export const uploadFileParams = (
   };
 };
 
+type uploadSuccess = Promise<aws.S3.ManagedUpload.SendData>;
+
 export const uploadFile = async (
   file: any,
   fileType: string,
   path: (typeFile: string) => string,
-) => {
+): uploadSuccess | undefined => {
   try {
     const s3 = new aws.S3({
       accessKeyId: AWS_ACCESS_KEY,
@@ -40,16 +42,15 @@ export const uploadFile = async (
       region: AWS_REGION,
     });
 
-    const url = await s3
-      .upload(uploadFileParams(file, fileType, path))
-      .promise();
-    return url.Location;
+    return s3.upload(uploadFileParams(file, fileType, path)).promise();
   } catch (error) {
     logError(error.name);
   }
 };
 
-export const deleteObject = async (key: string) => {
+export const deleteObject = async (
+  key: string,
+): Promise<boolean | undefined> => {
   try {
     const s3 = new aws.S3({
       accessKeyId: AWS_ACCESS_KEY,
@@ -63,15 +64,16 @@ export const deleteObject = async (key: string) => {
         Key: key,
       })
       .promise();
+    return true;
   } catch (error) {
     logError(error.name);
   }
 };
 
-export const uploadPng = async (image: any) => {
+export const uploadPng = async (image: any): uploadSuccess | undefined => {
   return uploadFile(image, 'png', generatePath);
 };
 
-export const uploadZip = async (zipFile: any) => {
+export const uploadZip = async (zipFile: any): uploadSuccess | undefined => {
   return uploadFile(zipFile, 'zip', generatePath);
 };
