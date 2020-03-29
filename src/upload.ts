@@ -49,6 +49,25 @@ export const uploadFile = async (
   }
 };
 
+export const deleteObject = async (key: string) => {
+  try {
+    const s3 = new aws.S3({
+      accessKeyId: AWS_ACCESS_KEY,
+      secretAccessKey: AWS_SECRET_ACCESS_KEY,
+      region: AWS_REGION,
+    });
+
+    await s3
+      .deleteObject({
+        Bucket: AWS_BUCKET_NAME,
+        Key: key,
+      })
+      .promise();
+  } catch (error) {
+    logError(error.name);
+  }
+};
+
 export const uploadPng = async (image: any) => {
   return uploadFile(image, 'png', generatePath);
 };
