@@ -1,7 +1,5 @@
-import { gql } from 'apollo-server-lambda';
+import { concatenateTypeDefs } from 'apollo-server-lambda';
 
-export const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
+import { types } from './types';
+
+export const typeDefs = concatenateTypeDefs([types]);
