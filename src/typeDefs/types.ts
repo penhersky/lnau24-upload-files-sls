@@ -5,5 +5,10 @@ export const types = gql`
     path: String!
     key: String!
   }
-  union return = File | String
+
+  type Error {
+    error: String!
+  }
+
+  union return = File | Error
 `;
