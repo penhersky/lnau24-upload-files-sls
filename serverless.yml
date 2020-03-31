@@ -25,7 +25,6 @@ functions:
           cors:
             origin: '*'
             headers:
-              - auth-token
               - access-key
               - Content-Type
               - X-Amz-Date
@@ -39,7 +38,6 @@ functions:
           cors:
             origin: '*'
             headers:
-              - auth-token
               - access-key
               - Content-Type
               - X-Amz-Date
