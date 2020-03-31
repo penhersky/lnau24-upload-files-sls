@@ -6,7 +6,7 @@ export const mutation = gql`
     uploadImages(images: [Upload!]!): [File]
     uploadZipFile(zipFile: Upload!): [File]
     uploadZipFiles(zipFiles: [Upload!]!): [File]
-    deleteObject(key: String!): String
-    deleteObjects(keys: [String]): String
+    deleteObject(key: String!): Boolean
+    deleteObjects(keys: [String]): Boolean
   }
 `;

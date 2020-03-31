@@ -2,8 +2,8 @@ import { uploadZip } from './../../upload';
 import { verifyKry } from './../../middleware';
 import { logError } from '../../logging';
 
-export const image = {
-  uploadZipFile: async (parent: any, args: any, context: any) => {
+export const zipFile = {
+  uploadZipFile: async (_: any, args: any, context: any) => {
     try {
       const access = verifyKry(context);
       if (!access) return { message: 'Access denied!' };
@@ -19,7 +19,7 @@ export const image = {
       return { message: 'Server error' };
     }
   },
-  uploadImages: async (parent: any, args: any, context: any) => {
+  uploadImages: async (_: any, args: any, context: any) => {
     try {
       const access = verifyKry(context);
       if (!access) return { message: 'Access denied!' };

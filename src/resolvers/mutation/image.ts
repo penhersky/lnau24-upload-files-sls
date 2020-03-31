@@ -3,7 +3,7 @@ import { verifyKry } from './../../middleware';
 import { logError } from '../../logging';
 
 export const image = {
-  uploadImage: async (parent: any, args: any, context: any) => {
+  uploadImage: async (_: any, args: any, context: any) => {
     try {
       const access = verifyKry(context);
       if (!access) return { message: 'Access denied!' };
@@ -19,7 +19,7 @@ export const image = {
       return { message: 'Server error' };
     }
   },
-  uploadImages: async (parent: any, args: any, context: any) => {
+  uploadImages: async (_: any, args: any, context: any) => {
     try {
       const access = verifyKry(context);
       if (!access) return { message: 'Access denied!' };
