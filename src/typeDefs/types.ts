@@ -7,7 +7,7 @@ export const types = gql`
   }
 
   type Error {
-    error: String!
+    message: String!
   }
 
   union return = File | Error

@@ -5,7 +5,7 @@ export const types = {
         return 'File';
       }
 
-      if (obj.error) {
+      if (obj.message) {
         return 'Error';
       }
 
