@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "apollo-server-lambda": "^2.11.0",
+    "apollo-server-lambda": "^2.14.2",
     "aws-sdk": "^2.647.0",
     "graphql": "^14.6.0",
     "source-map-support": "^0.5.10",
